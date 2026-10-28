@@ -1,0 +1,156 @@
+/* Há Cảo — custom.css
+   Chỉ chứa những gì Tailwind utilities không diễn đạt được:
+   - .img-slot   (positioning + pseudo-content cho placeholder)
+   - .outcomes-wash  (gradient phức hợp)
+   - .nav-link   (::after underline pseudo-element)
+   - prefers-reduced-motion
+*/
+
+/* ─── Image placeholder slots ───────────────────────────────── */
+.img-slot {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #e8efe8 0%, #f3ebe8 50%, #e5dce8 100%);
+}
+
+.img-slot img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+/* Zoom ảnh bên trong khung (khung giữ nguyên nhờ overflow:hidden) */
+.img-slot.img-zoom-150 img {
+  transform: scale(1.5);
+}
+
+/* Logo: nền trong suốt (không dùng gradient hồng của .img-slot),
+   cover + rounded để khớp vòng tròn */
+.img-slot.logo-slot {
+  background: transparent;
+}
+
+.img-slot.logo-slot img {
+  object-fit: cover;
+  padding: 0;
+}
+
+/* Hiển thị tên placeholder khi chưa có ảnh */
+.img-slot[data-label][data-loaded="false"]::after {
+  content: attr(data-label);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #5a6b5e;
+  opacity: 0.65;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.img-slot[data-loaded="true"]::after {
+  display: none;
+}
+
+/* ─── Outcomes section gradient ─────────────────────────────── */
+.outcomes-wash {
+  background-image:
+    radial-gradient(ellipse 72% 85% at 0% 50%, rgba(18, 75, 46, 0.6) 0%, transparent 68%),
+    linear-gradient(135deg, #062c1f 0%, #041f16 100%);
+}
+
+/* ─── Nav link active underline ─────────────────────────────── */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #062c1f;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  width: 100%;
+}
+
+/* ─── Card Fan Carousel (GSAP) ──────────────────────────────── */
+.fan-layout {
+  position: relative;
+  width: 100%;
+  height: 22rem;
+  overflow: visible;
+}
+
+.fan-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10.5rem;
+  height: 17.5rem;
+  border-radius: 1.35rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 14px 36px rgba(6, 44, 31, 0.16);
+  will-change: transform, opacity;
+  cursor: default;
+}
+
+.fan-card-inner,
+.fan-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+@media (min-width: 480px) {
+  .fan-layout { height: 26rem; }
+  .fan-card { width: 12rem; height: 20rem; }
+}
+
+@media (min-width: 640px) {
+  .fan-layout { height: 28rem; }
+  .fan-card { width: 13.5rem; height: 22.5rem; }
+}
+
+@media (min-width: 768px) {
+  .fan-layout { height: 32rem; }
+  .fan-card { width: 14.5rem; height: 24.5rem; }
+}
+
+@media (min-width: 1024px) {
+  .fan-layout { height: 34rem; }
+  .fan-card { width: 15.5rem; height: 26rem; }
+}
+
+/* ─── Reduced motion ────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

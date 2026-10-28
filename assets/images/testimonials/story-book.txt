@@ -1,0 +1,4 @@
+# Testimonials — ảnh story Instagram (giữa)
+# Thay file này bằng: story-book.jpg (hoặc .webp)
+# Nội dung: ảnh giáo trình HSK 1 trên bàn / tay cầm sách
+# Tỷ lệ đề xuất: 9:16 (story), tối thiểu 540x960px

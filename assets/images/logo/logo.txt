@@ -1,0 +1,4 @@
+# Logo Há Cảo
+# Thay file này bằng: logo.svg hoặc logo.png
+# Gợi ý: icon bánh há cảo / dumpling + chữ "Há Cảo"
+# Kích thước đề xuất: 120x40px (hoặc SVG)

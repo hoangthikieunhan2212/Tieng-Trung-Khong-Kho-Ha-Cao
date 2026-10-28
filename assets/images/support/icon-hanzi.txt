@@ -1,0 +1,4 @@
+# Support — icon luyện viết chữ Hán
+# Thay file này bằng: icon-hanzi.svg (hoặc .png)
+# Nội dung: icon bút chì / luyện viết
+# Kích thước đề xuất: 48x48px

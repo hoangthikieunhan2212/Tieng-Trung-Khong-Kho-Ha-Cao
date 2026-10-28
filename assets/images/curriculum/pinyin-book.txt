@@ -1,0 +1,4 @@
+# Giáo trình — bìa sách Pinyin
+# Thay file này bằng: pinyin-book.jpg (hoặc .webp)
+# Nội dung: bìa giáo trình Pinyin màu hồng/pastel
+# Tỷ lệ đề xuất: 3:4, tối thiểu 400x520px

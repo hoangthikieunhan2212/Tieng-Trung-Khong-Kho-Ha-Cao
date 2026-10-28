@@ -1,0 +1,4 @@
+# Outcomes — nền lá / texture
+# Thay file này bằng: leaf-bg.jpg (hoặc .webp / .png)
+# Nội dung: ảnh lá xanh tự nhiên, overlay bên trái section "Bạn sẽ đạt được gì?"
+# Tỷ lệ đề xuất: dọc, tối thiểu 600x900px

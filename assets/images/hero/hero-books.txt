@@ -1,0 +1,4 @@
+# Hero — ảnh sách Pinyin + HSK 1
+# Thay file này bằng: hero-books.jpg (hoặc .webp)
+# Nội dung: 2 cuốn sách xếp chồng (Pinyin hồng, HSK 1 xanh) + nhân vật há cảo trên bàn gỗ
+# Tỷ lệ đề xuất: 4:5 hoặc 3:4, tối thiểu 800x1000px

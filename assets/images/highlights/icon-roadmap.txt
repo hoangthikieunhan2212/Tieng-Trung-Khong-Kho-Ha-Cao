@@ -1,0 +1,4 @@
+# Highlights — icon lộ trình
+# Thay file này bằng: icon-roadmap.svg (hoặc .png)
+# Nội dung: icon line-art đích / target / lộ trình
+# Kích thước đề xuất: 64x64px

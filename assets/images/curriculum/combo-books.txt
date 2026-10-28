@@ -1,0 +1,4 @@
+# Combo — ảnh 2 giáo trình
+# Thay file này bằng: combo-books.jpg (hoặc .webp)
+# Nội dung: 2 cuốn Pinyin + HSK 1 xếp cạnh nhau / chồng
+# Tỷ lệ đề xuất: 1:1 hoặc 4:3, tối thiểu 400x400px

@@ -1,0 +1,4 @@
+# Giáo trình — bìa sách HSK 1
+# Thay file này bằng: hsk1-book.jpg (hoặc .webp)
+# Nội dung: bìa giáo trình HSK 1 màu xanh lá
+# Tỷ lệ đề xuất: 3:4, tối thiểu 400x520px

@@ -1,0 +1,4 @@
+# Highlights — icon hỗ trợ
+# Thay file này bằng: icon-support.svg (hoặc .png)
+# Nội dung: icon line-art cây / hỗ trợ học tập
+# Kích thước đề xuất: 64x64px

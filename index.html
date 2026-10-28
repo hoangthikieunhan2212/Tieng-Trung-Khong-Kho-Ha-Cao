@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ── Primary SEO ──────────────────────────────────────── -->
+    <title>Há Cảo — Học Tiếng Trung cho Người Mới Bắt Đầu | Pinyin & HSK 1</title>
+    <meta
+      name="description"
+      content="Há Cảo cung cấp giáo trình tiếng Trung số dành cho người mới. Làm chủ Pinyin trong 5 buổi và HSK 1 phiên bản 3.0 trong 15 buổi — trực quan, có audio minh họa, lộ trình rõ ràng."
+    />
+    <meta name="robots"      content="index, follow" />
+    <meta name="author"      content="Há Cảo" />
+    <meta name="theme-color" content="#062C1F" />
+    <meta name="keywords"    content="học tiếng Trung, Pinyin, HSK 1, giáo trình tiếng Trung, tiếng Trung người mới, tiếng Trung cơ bản" />
+    <link rel="canonical"    href="https://hacao.vn/" />
+
+    <!-- ── Open Graph ───────────────────────────────────────── -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://hacao.vn/" />
+    <meta property="og:site_name"   content="Há Cảo" />
+    <meta property="og:locale"      content="vi_VN" />
+    <meta property="og:title"       content="Há Cảo — Học Tiếng Trung cho Người Mới Bắt Đầu" />
+    <meta property="og:description" content="Giáo trình số giúp bạn làm chủ Pinyin và HSK 1 từ những điều thật đơn giản." />
+    <meta property="og:image"        content="https://hacao.vn/og-image.png" />
+    <meta property="og:image:secure_url" content="https://hacao.vn/og-image.png" />
+    <meta property="og:image:type"   content="image/png" />
+    <meta property="og:image:width"  content="1672" />
+    <meta property="og:image:height" content="941" />
+    <meta property="og:image:alt"    content="Há Cảo — Học tiếng Trung cho người mới bắt đầu" />
+
+    <!-- ── Twitter Card ─────────────────────────────────────── -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:title"       content="Há Cảo — Học Tiếng Trung cho Người Mới Bắt Đầu" />
+    <meta name="twitter:description" content="Giáo trình số giúp bạn làm chủ Pinyin và HSK 1 từ những điều thật đơn giản." />
+    <meta name="twitter:image"       content="https://hacao.vn/og-image.png" />
+    <meta name="twitter:image:alt"   content="Há Cảo — Học tiếng Trung cho người mới bắt đầu" />
+
+    <!-- ── Favicon (RealFaviconGenerator) ──────────────────── -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="HaCao" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- ── Fonts ────────────────────────────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- ── Tailwind CDN + config ─────────────────────────────── -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: {
+                DEFAULT: "#062C1F",
+                deep:    "#041F16",
+                soft:    "#0A3D2C",
+              },
+              cream: {
+                DEFAULT: "#F9F7F2",
+                warm:    "#F3EFE6",
+              },
+              pastel: {
+                pink:     "#E8D5E5",
+                green:    "#D4E4D4",
+                lavender: "#E4DCEB",
+                sand:     "#E8DFD4",
+                rose:     "#F0D6D8",
+              },
+            },
+            fontFamily: {
+              sans: ['"Be Vietnam Pro"', "system-ui", "sans-serif"],
+            },
+            borderRadius: {
+              "4xl": "2rem",
+              "5xl": "2.5rem",
+            },
+            maxWidth: {
+              site: "72rem",
+            },
+          },
+        },
+      };
+    </script>
+
+    <link rel="stylesheet" href="css/custom.css" />
+
+    <!-- ── JSON-LD Structured Data ──────────────────────────── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "EducationalOrganization",
+          "@id": "https://hacao.vn/#org",
+          "name": "Há Cảo",
+          "url": "https://hacao.vn",
+          "description": "Giáo trình tiếng Trung số dành cho người mới bắt đầu tại Việt Nam",
+          "inLanguage": "vi",
+          "logo": "https://hacao.vn/og-image.png",
+          "image": "https://hacao.vn/og-image.png"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://hacao.vn/#page",
+          "url": "https://hacao.vn",
+          "name": "Há Cảo — Học Tiếng Trung cho Người Mới Bắt Đầu",
+          "description": "Giáo trình số giúp bạn làm chủ Pinyin và HSK 1 từ những điều thật đơn giản.",
+          "inLanguage": "vi",
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://hacao.vn/og-image.png",
+            "width": 1672,
+            "height": 941
+          },
+          "publisher": { "@id": "https://hacao.vn/#org" }
+        },
+        {
+          "@type": "Course",
+          "name": "Làm chủ Pinyin trong 5 buổi",
+          "description": "Nắm vững 23 thanh mẫu, 36 vận mẫu và 4 thanh điệu. Luyện nghe nói với audio minh họa.",
+          "provider": { "@id": "https://hacao.vn/#org" },
+          "inLanguage": "vi",
+          "educationalLevel": "Beginner",
+          "offers": {
+            "@type": "Offer",
+            "price": "300000",
+            "priceCurrency": "VND",
+            "availability": "https://schema.org/InStock"
+          }
+        },
+        {
+          "@type": "Course",
+          "name": "HSK 1 phiên bản 3.0 trong 15 buổi",
+          "description": "Làm quen và nắm vững kiến thức HSK 1 về từ vựng, ngữ pháp và mẫu câu cơ bản.",
+          "provider": { "@id": "https://hacao.vn/#org" },
+          "inLanguage": "vi",
+          "educationalLevel": "Beginner",
+          "offers": {
+            "@type": "Offer",
+            "price": "500000",
+            "priceCurrency": "VND",
+            "availability": "https://schema.org/InStock"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+
+  <body class="bg-cream text-forest antialiased">
+
+    <!-- ══════════════════════════════════════════════════════════
+         HEADER
+    ══════════════════════════════════════════════════════════ -->
+    <header
+      id="site-header"
+      class="sticky top-0 z-50 bg-cream/95 backdrop-blur-md transition-shadow duration-300"
+    >
+      <div class="mx-auto flex max-w-site items-center justify-between gap-4 px-5 py-4 lg:px-8">
+
+        <!-- Logo -->
+        <a href="#trang-chu" class="flex shrink-0 items-center gap-2.5" aria-label="Há Cảo – trang chủ">
+          <span
+            class="img-slot logo-slot relative h-9 w-9 shrink-0 overflow-hidden rounded-full"
+            data-src="assets/images/logo/logo"
+            data-alt="Logo Há Cảo"
+            aria-hidden="true"
+          ></span>
+          <span class="text-lg font-semibold tracking-tight">Há Cảo</span>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden items-center gap-7 lg:flex" aria-label="Điều hướng chính">
+          <a href="#trang-chu" class="nav-link text-sm font-medium text-forest/70 transition-colors hover:text-forest">Trang chủ</a>
+          <a href="#giao-trinh" class="nav-link text-sm font-medium text-forest/70 transition-colors hover:text-forest">Giáo trình</a>
+          <a href="#lo-trinh"   class="nav-link text-sm font-medium text-forest/70 transition-colors hover:text-forest">Lộ trình học</a>
+          <a href="#ho-tro"     class="nav-link text-sm font-medium text-forest/70 transition-colors hover:text-forest">Hỗ trợ</a>
+          <a href="#faq"        class="nav-link text-sm font-medium text-forest/70 transition-colors hover:text-forest">Câu hỏi thường gặp</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="#"
+            data-cta
+            class="hidden rounded-full bg-forest px-5 py-2.5 text-sm font-semibold text-cream transition-colors hover:bg-forest-soft sm:inline-flex"
+          >
+            Nhận tư vấn
+          </a>
+          <!-- Hamburger — hai icon crossfade bằng GSAP -->
+          <button
+            id="nav-toggle"
+            type="button"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+            aria-label="Mở / đóng menu"
+            class="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-forest/15 transition-colors hover:bg-forest/5 lg:hidden"
+          >
+            <i id="nav-icon-open"  data-lucide="menu" class="absolute size-5" aria-hidden="true"></i>
+            <i id="nav-icon-close" data-lucide="x"    class="absolute size-5 opacity-0" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu — height animated by GSAP -->
+      <div id="mobile-menu" class="border-t border-forest/5 lg:hidden" style="height:0;overflow:hidden">
+        <nav
+          class="mx-auto flex max-w-site flex-col gap-1 px-5 py-3"
+          aria-label="Menu mobile"
+        >
+          <a href="#trang-chu" class="rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-forest/5">Trang chủ</a>
+          <a href="#giao-trinh" class="rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-forest/5">Giáo trình</a>
+          <a href="#lo-trinh"   class="rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-forest/5">Lộ trình học</a>
+          <a href="#ho-tro"     class="rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-forest/5">Hỗ trợ</a>
+          <a href="#faq"        class="rounded-xl px-3 py-2.5 text-sm font-medium transition-colors hover:bg-forest/5">Câu hỏi thường gặp</a>
+          <a href="#" data-cta class="mt-2 rounded-full bg-forest px-5 py-2.5 text-center text-sm font-semibold text-cream">Nhận tư vấn</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+
+      <!-- ══════════════════════════════════════════════════════════
+           HERO
+      ══════════════════════════════════════════════════════════ -->
+      <section id="trang-chu" aria-labelledby="hero-title" class="bg-cream px-4 pb-6 pt-2 sm:px-6 lg:px-8">
+        <div class="mx-auto max-w-site overflow-hidden rounded-5xl bg-forest text-cream">
+          <div class="grid items-center gap-10 px-6 py-12 sm:px-10 lg:grid-cols-2 lg:gap-12 lg:px-14 lg:py-16">
+
+            <div>
+              <p id="hero-eyebrow" class="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-cream/60">
+                Tiếng Trung cho người mới bắt đầu
+              </p>
+              <h1
+                id="hero-title"
+                class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
+              >
+                Bắt đầu học tiếng Trung,<br class="hidden sm:block" />
+                từ những điều thật đơn giản.
+              </h1>
+              <p id="hero-desc" class="mt-5 max-w-md text-sm leading-relaxed text-cream/70 sm:text-base">
+                Giáo trình số giúp bạn làm chủ phát âm, Pinyin và nền tảng HSK 1 —
+                rõ ràng, trực quan, dễ theo dõi từng buổi học.
+              </p>
+
+              <div id="hero-actions" class="mt-8 flex flex-wrap gap-3">
+                <a
+                  href="#"
+                  data-cta
+                  class="inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3 text-sm font-semibold text-forest transition-colors hover:bg-white"
+                >
+                  Khám phá giáo trình
+                  <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
+                </a>
+                <a
+                  href="#"
+                  data-cta
+                  class="inline-flex items-center rounded-full border border-cream/35 px-6 py-3 text-sm font-semibold text-cream transition hover:border-cream/60 hover:bg-cream/10"
+                >
+                  Xem lộ trình học
+                </a>
+              </div>
+
+              <ul id="hero-features" class="mt-10 flex flex-wrap gap-x-7 gap-y-4 text-xs text-cream/75 sm:text-sm">
+                <li class="flex items-center gap-2.5">
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cream/10" aria-hidden="true">
+                    <i data-lucide="eye" class="size-4"></i>
+                  </span>
+                  Dễ hiểu, trực quan
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cream/10" aria-hidden="true">
+                    <i data-lucide="volume-2" class="size-4"></i>
+                  </span>
+                  Có âm thanh minh họa
+                </li>
+                <li class="flex items-center gap-2.5">
+                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cream/10" aria-hidden="true">
+                    <i data-lucide="list-checks" class="size-4"></i>
+                  </span>
+                  Lộ trình rõ ràng
+                </li>
+              </ul>
+            </div>
+
+            <div id="hero-visual" class="w-full lg:justify-self-end">
+              <div class="aspect-[3/2] w-full max-w-md overflow-hidden rounded-4xl shadow-2xl shadow-black/25 lg:max-w-lg">
+                <img
+                  src="assets/images/hero/hero-books.png"
+                  alt="Giáo trình Pinyin và HSK 1 của Há Cảo"
+                  class="h-full w-full object-cover"
+                  width="1536"
+                  height="1024"
+                  loading="eager"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           HIGHLIGHTS — Vì sao học cùng Há Cảo?
+      ══════════════════════════════════════════════════════════ -->
+      <section id="lo-trinh" aria-labelledby="highlights-title" class="bg-cream px-5 py-16 sm:px-8 lg:py-24">
+        <div class="mx-auto grid max-w-site gap-10 lg:grid-cols-[1fr_1.65fr] lg:gap-14">
+
+          <div class="highlights-intro">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-forest/45">Highlights</p>
+            <h2 id="highlights-title" class="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+              Vì sao nên học<br class="hidden sm:block" />cùng Há Cảo?
+            </h2>
+            <p class="mt-4 max-w-xs text-sm leading-relaxed text-forest/60">
+              Ba lý do giúp bạn bắt đầu tiếng Trung vững vàng, không bị rối từ những bước đầu tiên.
+            </p>
+            <a
+              href="#"
+              data-cta
+              class="mt-8 inline-flex items-center gap-2 rounded-full border border-forest/25 px-5 py-2.5 text-sm font-semibold transition hover:border-forest hover:bg-forest hover:text-cream"
+            >
+              Tìm hiểu thêm
+              <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="grid gap-4 sm:grid-cols-3">
+            <article class="highlights-card rounded-3xl bg-pastel-sand p-6">
+              <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-forest/8" aria-hidden="true">
+                <i data-lucide="book-open" class="size-5 text-forest/65"></i>
+              </div>
+              <h3 class="text-base font-bold">Giáo trình dễ hiểu</h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-forest/60">
+                Nội dung số hóa, giải thích trực quan — học đến đâu hiểu đến đó,
+                không bị ngợp lý thuyết.
+              </p>
+            </article>
+
+            <article class="highlights-card rounded-3xl bg-pastel-lavender p-6">
+              <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-forest/8" aria-hidden="true">
+                <i data-lucide="target" class="size-5 text-forest/65"></i>
+              </div>
+              <h3 class="text-base font-bold">Lộ trình bài bản</h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-forest/60">
+                Từ Pinyin đến HSK 1 theo từng buổi — biết rõ hôm nay học gì,
+                tuần sau đi tới đâu.
+              </p>
+            </article>
+
+            <article class="highlights-card rounded-3xl bg-pastel-green p-6">
+              <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-forest/8" aria-hidden="true">
+                <i data-lucide="sprout" class="size-5 text-forest/65"></i>
+              </div>
+              <h3 class="text-base font-bold">Hỗ trợ học tập</h3>
+              <p class="mt-2.5 text-sm leading-relaxed text-forest/60">
+                File luyện viết, theo dõi tiến độ và hướng dẫn phát âm kèm theo
+                mỗi lộ trình.
+              </p>
+            </article>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           CURRICULUM — Hai bước khởi đầu
+      ══════════════════════════════════════════════════════════ -->
+      <section id="giao-trinh" aria-labelledby="curriculum-title" class="bg-cream px-5 pb-16 sm:px-8 lg:pb-24">
+        <div class="mx-auto max-w-site">
+
+          <div class="curriculum-header mb-12 text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-forest/45">Giáo trình</p>
+            <h2 id="curriculum-title" class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              Hai bước khởi đầu cùng Há Cảo
+            </h2>
+            <p class="mx-auto mt-3 max-w-md text-sm leading-relaxed text-forest/55">
+              Bộ 2 giáo trình giúp bạn xây nền tảng tiếng Trung vững chắc, từ phát âm đến kiến thức HSK 1.
+            </p>
+          </div>
+
+          <div class="grid gap-5 lg:grid-cols-2">
+            <!-- Pinyin -->
+            <article
+              class="course-card flex flex-col gap-5 rounded-4xl border border-forest/8 bg-white p-5 transition-shadow hover:shadow-md sm:flex-row sm:p-6"
+              itemscope itemtype="https://schema.org/Course"
+            >
+              <div
+                class="img-slot aspect-[3/4] w-full shrink-0 overflow-hidden rounded-3xl sm:w-40 lg:w-44"
+                data-src="assets/images/curriculum/pinyin-book"
+                data-alt="Bìa giáo trình Làm chủ Pinyin trong 5 buổi"
+                data-label="curriculum / pinyin-book"
+              ></div>
+              <div class="flex flex-1 flex-col">
+                <h3 class="text-xl font-bold leading-snug" itemprop="name">
+                  Làm chủ Pinyin trong 5 buổi
+                </h3>
+                <ul class="mt-4 space-y-2 text-sm text-forest/65">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
+                    23 thanh mẫu &amp; 36 vận mẫu, 4 thanh điệu
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
+                    Luyện nghe – nói có audio minh họa
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
+                    Bài tập ôn sau mỗi buổi học
+                  </li>
+                </ul>
+                <div class="mt-auto flex items-end justify-between gap-3 pt-6">
+                  <p class="text-2xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="price" content="300000">300.000đ</span>
+                    <meta itemprop="priceCurrency" content="VND" />
+                  </p>
+                  <a
+                    href="#"
+                    data-cta
+                    class="inline-flex items-center gap-1.5 rounded-full border border-forest/20 px-4 py-2 text-sm font-semibold transition hover:border-forest hover:bg-forest hover:text-cream"
+                  >
+                    Xem chi tiết
+                    <i data-lucide="arrow-right" class="size-3.5" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- HSK 1 -->
+            <article
+              class="course-card flex flex-col gap-5 rounded-4xl border border-forest/8 bg-white p-5 transition-shadow hover:shadow-md sm:flex-row sm:p-6"
+              itemscope itemtype="https://schema.org/Course"
+            >
+              <div
+                class="img-slot aspect-[3/4] w-full shrink-0 overflow-hidden rounded-3xl sm:w-40 lg:w-44"
+                data-src="assets/images/curriculum/hsk1-book"
+                data-alt="Bìa giáo trình HSK 1 phiên bản 3.0 trong 15 buổi"
+                data-label="curriculum / hsk1-book"
+              ></div>
+              <div class="flex flex-1 flex-col">
+                <h3 class="text-xl font-bold leading-snug" itemprop="name">
+                  HSK 1 – phiên bản 3.0 trong 15 buổi
+                </h3>
+                <ul class="mt-4 space-y-2 text-sm text-forest/65">
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
+                    Từ vựng &amp; ngữ pháp HSK 1 (3.0)
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
+                    Hội thoại thực tế theo chủ đề
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
+                    Luyện viết chữ Hán có hướng dẫn
+                  </li>
+                </ul>
+                <div class="mt-auto flex items-end justify-between gap-3 pt-6">
+                  <p class="text-2xl font-bold" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <span itemprop="price" content="500000">500.000đ</span>
+                    <meta itemprop="priceCurrency" content="VND" />
+                  </p>
+                  <a
+                    href="#"
+                    data-cta
+                    class="inline-flex items-center gap-1.5 rounded-full border border-forest/20 px-4 py-2 text-sm font-semibold transition hover:border-forest hover:bg-forest hover:text-cream"
+                  >
+                    Xem chi tiết
+                    <i data-lucide="arrow-right" class="size-3.5" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- Combo banner -->
+          <div
+            id="combo-banner"
+            class="mt-5 flex flex-col items-center gap-5 rounded-4xl bg-pastel-lavender px-6 py-6 sm:flex-row sm:px-8 sm:py-7"
+          >
+            <div
+              class="img-slot img-zoom-150 h-24 w-28 shrink-0 overflow-hidden rounded-2xl sm:h-28 sm:w-32"
+              data-src="assets/images/curriculum/combo-books"
+              data-alt="Combo giáo trình Pinyin và HSK 1"
+              data-label="combo-books"
+            ></div>
+            <div class="flex-1 text-center sm:text-left">
+              <h3 class="text-lg font-bold sm:text-xl">Combo 2 giáo trình</h3>
+              <p class="mt-1 text-sm text-forest/60">
+                Pinyin + HSK 1 — tiết kiệm hơn khi học trọn lộ trình khởi đầu.
+              </p>
+            </div>
+            <div class="flex flex-col items-center gap-3 sm:flex-row sm:gap-5">
+              <div class="text-center sm:text-right">
+                <p class="text-2xl font-bold">800.000đ</p>
+                <p class="text-sm text-forest/40 line-through">900.000đ</p>
+              </div>
+              <a
+                href="#"
+                data-cta
+                class="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-forest-soft"
+              >
+                Mua combo ngay
+                <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           OUTCOMES — Bạn sẽ đạt được gì?
+      ══════════════════════════════════════════════════════════ -->
+      <section id="ket-qua" aria-labelledby="outcomes-title" class="bg-cream px-4 py-6 sm:px-6 lg:px-8">
+        <div class="outcomes-wash mx-auto max-w-site overflow-hidden rounded-5xl text-cream">
+          <div class="relative grid gap-10 px-6 py-14 sm:px-10 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-14 lg:py-20">
+
+            <!-- Leaf background (decorative) -->
+            <div class="pointer-events-none absolute inset-y-0 left-0 w-2/5 opacity-20" aria-hidden="true">
+              <div
+                class="img-slot h-full w-full"
+                data-src="assets/images/outcomes/leaf-bg"
+                data-alt=""
+                data-label=""
+              ></div>
+            </div>
+
+            <div class="outcomes-heading relative">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-cream/50">Sau khi học</p>
+              <h2 id="outcomes-title" class="mt-3 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+                Bạn sẽ đạt được gì?
+              </h2>
+            </div>
+
+            <ul class="relative space-y-5">
+              <li class="outcomes-item flex gap-4">
+                <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pastel-green/85 text-forest" aria-hidden="true">
+                  <i data-lucide="check" class="size-3.5"></i>
+                </span>
+                <p class="text-sm leading-relaxed text-cream/80 sm:text-base">
+                  Nắm vững hệ thống Pinyin: 23 thanh mẫu, 36 vận mẫu và 4 thanh điệu.
+                </p>
+              </li>
+              <li class="outcomes-item flex gap-4">
+                <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pastel-green/85 text-forest" aria-hidden="true">
+                  <i data-lucide="check" class="size-3.5"></i>
+                </span>
+                <p class="text-sm leading-relaxed text-cream/80 sm:text-base">
+                  Làm quen và sử dụng được từ vựng, ngữ pháp, mẫu câu cơ bản HSK 1.
+                </p>
+              </li>
+              <li class="outcomes-item flex gap-4">
+                <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pastel-green/85 text-forest" aria-hidden="true">
+                  <i data-lucide="check" class="size-3.5"></i>
+                </span>
+                <p class="text-sm leading-relaxed text-cream/80 sm:text-base">
+                  Biết cách ôn tập, luyện viết chữ Hán và theo dõi tiến độ học tập.
+                </p>
+              </li>
+              <li class="outcomes-item flex gap-4">
+                <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pastel-green/85 text-forest" aria-hidden="true">
+                  <i data-lucide="check" class="size-3.5"></i>
+                </span>
+                <p class="text-sm leading-relaxed text-cream/80 sm:text-base">
+                  Từng bước hình thành khả năng nghe hiểu và giao tiếp đơn giản trong các tình huống quen thuộc.
+                </p>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           VIDEO SHOWCASE — Xem thử cách học
+      ══════════════════════════════════════════════════════════ -->
+      <section
+        id="xem-thu"
+        aria-labelledby="video-title"
+        class="bg-cream px-5 py-16 sm:px-8 lg:py-24"
+      >
+        <div class="mx-auto flex max-w-site flex-col items-center gap-8 text-center lg:gap-10">
+          <div class="video-intro max-w-2xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-forest/45">
+              Xem thử cách học
+            </p>
+            <h2
+              id="video-title"
+              class="mt-3 text-3xl font-bold leading-tight tracking-tight text-forest sm:text-4xl"
+            >
+              Một bài học sẽ diễn ra như thế nào?
+            </h2>
+            <p class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-forest/60">
+              Khám phá cách sử dụng giáo trình và trải nghiệm một buổi học cùng Há Cảo.
+            </p>
+          </div>
+
+          <div
+            id="youtube-embed"
+            class="video-frame w-full overflow-hidden rounded-3xl border border-forest/8 bg-white shadow-lg shadow-forest/10"
+          >
+            <div class="relative aspect-video">
+              <div
+                id="youtube-placeholder"
+                class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-forest/5 px-6 text-center"
+              >
+                <i data-lucide="play-circle" class="size-12 text-forest/40" aria-hidden="true"></i>
+                <p class="text-sm font-medium text-forest/55">
+                  Thêm <code class="rounded bg-forest/8 px-1.5 py-0.5 text-xs">youtubeVideoId</code> trong
+                  <code class="rounded bg-forest/8 px-1.5 py-0.5 text-xs">settings.json</code>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           TESTIMONIALS — Góc học viên (carousel ảnh feedback)
+      ══════════════════════════════════════════════════════════ -->
+      <section
+        id="hoc-vien"
+        aria-labelledby="testimonials-title"
+        class="bg-[#EAF2E8] px-5 py-16 sm:px-8 lg:py-24"
+      >
+        <div class="mx-auto flex max-w-site flex-col items-center gap-8 text-center lg:gap-10">
+
+          <div class="testimonials-intro relative z-10 max-w-2xl">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-forest/45">
+              Góc học viên
+            </p>
+            <h2
+              id="testimonials-title"
+              class="mt-3 text-3xl font-bold leading-tight tracking-tight text-forest sm:text-4xl"
+            >
+              Học viên nói gì về Há Cảo?
+            </h2>
+            <p class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-forest/60">
+              Những chia sẻ thật từ những bạn đã và đang học cùng Há Cảo.
+            </p>
+          </div>
+
+          <div class="testimonials-carousel w-full min-w-0">
+            <div
+              id="feedback-fan"
+              class="fan-layout relative mx-auto flex w-full max-w-2xl items-center justify-center"
+              aria-label="Carousel chia sẻ học viên"
+            >
+              <!-- JS inject .fan-card -->
+            </div>
+
+            <div class="mt-5 flex items-center justify-center gap-5">
+              <button
+                id="feedback-prev"
+                type="button"
+                class="feedback-nav inline-flex items-center justify-center text-forest/55 transition hover:text-forest"
+                aria-label="Ảnh trước"
+              >
+                <svg class="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+              <button
+                id="feedback-next"
+                type="button"
+                class="feedback-nav inline-flex items-center justify-center text-forest/55 transition hover:text-forest"
+                aria-label="Ảnh sau"
+              >
+                <svg class="size-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.25" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           SUPPORT / GIFTS
+      ══════════════════════════════════════════════════════════ -->
+      <section id="ho-tro" aria-labelledby="support-title" class="bg-cream px-5 py-16 sm:px-8 lg:py-20">
+        <div class="mx-auto max-w-site">
+
+          <div class="support-heading mb-10 text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-forest/45">Quà tặng &amp; Hỗ trợ</p>
+            <h2 id="support-title" class="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
+              Nhiều tài liệu đi kèm và hỗ trợ học tập
+            </h2>
+          </div>
+
+          <div class="rounded-4xl bg-cream-warm px-6 py-8 sm:px-10 lg:px-14">
+            <div class="grid gap-8 sm:grid-cols-3">
+
+              <div class="support-item flex items-start gap-4">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm" aria-hidden="true">
+                  <i data-lucide="pencil-line" class="size-5 text-forest/60"></i>
+                </div>
+                <p class="text-sm font-medium leading-snug text-forest/75">
+                  File luyện viết chữ Hán<br />(3–4 bài)
+                </p>
+              </div>
+
+              <div class="support-item flex items-start gap-4">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm" aria-hidden="true">
+                  <i data-lucide="table-2" class="size-5 text-forest/60"></i>
+                </div>
+                <p class="text-sm font-medium leading-snug text-forest/75">
+                  File Excel theo dõi<br />tiến độ học
+                </p>
+              </div>
+
+              <div class="support-item flex items-start gap-4">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm" aria-hidden="true">
+                  <i data-lucide="users" class="size-5 text-forest/60"></i>
+                </div>
+                <p class="text-sm font-medium leading-snug text-forest/75">
+                  Hướng dẫn học &amp; luyện phát âm<br />(2–3 tuần)
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           FAQ
+      ══════════════════════════════════════════════════════════ -->
+      <section id="faq" aria-labelledby="faq-title" class="bg-cream px-5 pb-16 sm:px-8">
+        <div class="mx-auto max-w-site">
+
+          <div class="mb-10 text-center">
+            <p class="text-xs font-semibold uppercase tracking-[0.2em] text-forest/45">FAQ</p>
+            <h2 id="faq-title" class="mt-3 text-2xl font-bold sm:text-3xl">Câu hỏi thường gặp</h2>
+          </div>
+
+          <div class="mx-auto max-w-2xl space-y-2.5" itemscope itemtype="https://schema.org/FAQPage">
+
+            <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
+                <span class="text-sm font-semibold" itemprop="name">Tôi chưa biết gì về tiếng Trung, học được không?</span>
+                <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
+              </button>
+              <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
+                  Có — Há Cảo thiết kế đặc biệt cho người mới bắt đầu. Bạn sẽ học từ Pinyin (phát âm) rồi mới bước vào từ vựng và ngữ pháp HSK 1, không cần bất kỳ kiến thức nền nào.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
+                <span class="text-sm font-semibold" itemprop="name">Giáo trình ở dạng nào? Có học trực tiếp không?</span>
+                <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
+              </button>
+              <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
+                  Giáo trình hoàn toàn ở dạng số (digital), gồm tài liệu PDF, audio minh họa và file hỗ trợ luyện viết / theo dõi tiến độ. Bạn tự học linh hoạt theo lịch của mình, không cần đăng ký lịch cố định.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
+                <span class="text-sm font-semibold" itemprop="name">Combo 2 giáo trình gồm những gì và tiết kiệm bao nhiêu?</span>
+                <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
+              </button>
+              <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
+                  Combo gồm giáo trình Pinyin (5 buổi) và HSK 1 phiên bản 3.0 (15 buổi), tổng cộng 20 buổi học với đầy đủ tài liệu đi kèm. Giá ưu đãi 800.000đ — tiết kiệm 100.000đ so với mua riêng lẻ.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
+                <span class="text-sm font-semibold" itemprop="name">Sau khi mua, tôi nhận tài liệu như thế nào?</span>
+                <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
+              </button>
+              <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <p class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
+                  Sau khi đặt hàng thành công, tài liệu sẽ được gửi qua email trong vòng 24 giờ làm việc. Bạn có thể liên hệ hỗ trợ nếu chưa nhận được sau thời gian đó.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ══════════════════════════════════════════════════════════
+           BOTTOM CTA
+      ══════════════════════════════════════════════════════════ -->
+      <section id="tu-van" aria-labelledby="cta-title" class="bg-cream px-4 pb-10 pt-4 sm:px-6 lg:px-8">
+        <div id="cta-box" class="mx-auto max-w-site overflow-hidden rounded-5xl bg-forest-deep text-cream">
+          <div class="flex flex-col items-start gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-10 sm:py-12 lg:px-14">
+            <div class="max-w-lg">
+              <h2 id="cta-title" class="text-2xl font-bold leading-snug sm:text-3xl">
+                Sẵn sàng bắt đầu hành trình học tiếng Trung cùng Há Cảo?
+              </h2>
+              <p class="mt-2 text-sm leading-relaxed text-cream/60">
+                Chọn giáo trình phù hợp với bạn và bắt đầu ngay hôm nay!
+              </p>
+            </div>
+            <a
+              href="#"
+              data-cta
+              class="inline-flex shrink-0 items-center gap-2 rounded-full bg-pastel-rose px-6 py-3.5 text-sm font-semibold text-forest transition-colors hover:bg-pastel-pink"
+            >
+              Khám phá giáo trình
+              <i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══════════════════════════════════════════════════════════
+         FOOTER
+    ══════════════════════════════════════════════════════════ -->
+    <footer class="border-t border-forest/5 bg-cream px-5 py-8 sm:px-8">
+      <div class="mx-auto flex max-w-site flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <div class="flex items-center gap-2">
+            <span
+              class="img-slot logo-slot relative h-7 w-7 shrink-0 overflow-hidden rounded-full"
+              data-src="assets/images/logo/logo"
+              data-alt="Logo Há Cảo"
+              aria-hidden="true"
+            ></span>
+            <p class="text-sm font-semibold">Há Cảo</p>
+          </div>
+          <p class="mt-2 text-xs text-forest/40">
+            © <span id="year"></span> Há Cảo — Tiếng Trung không khó.
+          </p>
+        </div>
+
+        <!-- Icon thuần + link, không nền / không viền tròn -->
+        <nav class="flex items-center gap-5 self-end" aria-label="Mạng xã hội">
+          <a
+            href="#"
+            data-social="facebook"
+            class="text-forest/55 transition hover:text-forest"
+            aria-label="Facebook"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+            </svg>
+          </a>
+          <a
+            href="#"
+            data-social="tiktok"
+            class="text-forest/55 transition hover:text-forest"
+            aria-label="TikTok"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+          </a>
+          <a
+            href="#"
+            data-social="youtube"
+            class="text-forest/55 transition hover:text-forest"
+            aria-label="YouTube"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+              <path d="m10 15 5-3-5-3z"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </footer>
+
+    <!-- ── Scripts (cuối body) ──────────────────────────────────── -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="js/card-fan-carousel.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,4 @@
+# Support — icon hướng dẫn phát âm
+# Thay file này bằng: icon-guide.svg (hoặc .png)
+# Nội dung: icon nhóm người / hướng dẫn học
+# Kích thước đề xuất: 48x48px

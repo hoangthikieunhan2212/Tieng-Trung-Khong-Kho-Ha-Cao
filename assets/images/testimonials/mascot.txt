@@ -1,0 +1,4 @@
+# Testimonials — mascot Há Cảo
+# Thay file này bằng: mascot.png (hoặc .webp / .svg)
+# Nội dung: nhân vật bánh há cảo cute nhìn lên từ góc dưới
+# Tỷ lệ đề xuất: vuông hoặc dọc, tối thiểu 300x300px, nền trong suốt tốt nhất

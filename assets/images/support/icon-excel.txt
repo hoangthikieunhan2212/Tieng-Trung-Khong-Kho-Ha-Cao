@@ -1,0 +1,4 @@
+# Support — icon Excel theo dõi tiến độ
+# Thay file này bằng: icon-excel.svg (hoặc .png)
+# Nội dung: icon bảng tính / spreadsheet
+# Kích thước đề xuất: 48x48px
