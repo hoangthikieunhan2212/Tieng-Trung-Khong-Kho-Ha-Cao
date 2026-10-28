@@ -90,20 +90,30 @@
 }
 
 /* ─── Card Fan Carousel (GSAP) ──────────────────────────────── */
+/* Clip ngang để fan + animation enter/exit không làm lệch layout mobile */
+.testimonials-carousel {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
 .fan-layout {
   position: relative;
   width: 100%;
-  height: 22rem;
-  overflow: visible;
+  max-width: 100%;
+  height: 20rem;
+  overflow: hidden; /* quan trọng: chặn overflow ngang */
+  touch-action: pan-y;
 }
 
 .fan-card {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: 10.5rem;
-  height: 17.5rem;
-  border-radius: 1.35rem;
+  width: 9.25rem;
+  height: 15.5rem;
+  border-radius: 1.25rem;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 14px 36px rgba(6, 44, 31, 0.16);
@@ -121,6 +131,11 @@
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
+}
+
+@media (min-width: 400px) {
+  .fan-layout { height: 22rem; }
+  .fan-card { width: 10.25rem; height: 17rem; }
 }
 
 @media (min-width: 480px) {

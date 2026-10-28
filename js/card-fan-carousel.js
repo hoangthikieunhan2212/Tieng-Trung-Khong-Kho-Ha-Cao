@@ -9,7 +9,7 @@
   var HALF = 1;
   var AUTOPLAY_MS = 3000;
 
-  // 3 vị trí: trái / giữa (to) / phải — x nhỏ để không hở trên màn rộng
+  // 3 vị trí: trái / giữa (to) / phải
   var FAN_POSITIONS = [
     { rot: -10, scale: 0.88, x: -8.5, y: 1.6, zIndex: 2 },
     { rot: 0,   scale: 1.0,  x: 0,    y: 0.0, zIndex: 10 },
@@ -17,12 +17,19 @@
   ];
 
   function getResponsiveMultiplier(width) {
-    if (width < 480) return 0.72;
-    if (width < 640) return 0.82;
-    if (width < 768) return 0.9;
-    if (width < 1024) return 0.95;
-    // Desktop rộng: giữ gần nhau, không scale offset lên quá lớn
+    // Mobile: thu offset mạnh để 3 card không tràn viewport
+    if (width < 380) return 0.42;
+    if (width < 480) return 0.52;
+    if (width < 640) return 0.68;
+    if (width < 768) return 0.82;
+    if (width < 1024) return 0.92;
     return 1.0;
+  }
+
+  function getEnterExitRem(width) {
+    if (width < 480) return 12;
+    if (width < 768) return 18;
+    return 28;
   }
 
   function getHeightMultiplier(width) {
@@ -202,13 +209,14 @@
               })
             );
           } else if (!wasVisible) {
-            var enterX = direction === "right" ? 40 : -40;
+            var enterDist = getEnterExitRem(window.innerWidth);
+            var enterX = direction === "right" ? enterDist : -enterDist;
             gsap.set(card, {
               x: enterX + "rem",
               y: cfg.y * hMult + "rem",
               xPercent: -50,
               yPercent: -50,
-              rotation: direction === "right" ? 30 : -30,
+              rotation: direction === "right" ? 24 : -24,
               scale: 0.5,
               opacity: 0,
             });
@@ -231,14 +239,15 @@
             );
           }
         } else if (wasVisible) {
-          var exitX = direction === "right" ? -40 : 40;
+          var exitDist = getEnterExitRem(window.innerWidth);
+          var exitX = direction === "right" ? -exitDist : exitDist;
           gsap.to(card, {
             x: exitX + "rem",
             xPercent: -50,
             yPercent: -50,
             opacity: 0,
             scale: 0.5,
-            rotation: direction === "right" ? -30 : 30,
+            rotation: direction === "right" ? -24 : 24,
             duration: 0.38,
             ease: "power2.in",
             zIndex: 0,
