@@ -42,11 +42,27 @@ Mỗi slot đang có file `.txt` hướng dẫn. Để hiện ảnh:
 
 ## Chạy local
 
-Mở trực tiếp `index.html` trong trình duyệt, hoặc:
-
 ```bash
 npx serve .
 # hoặc: python3 -m http.server 5500
 ```
 
-Stack: HTML + Tailwind CSS (CDN) + JS thuần. Font: Be Vietnam Pro.
+## Deploy Vercel
+
+Site HTML tĩnh — không cần `package.json` / build.
+
+1. Push code lên GitHub (repo đã có remote).
+2. Vào [vercel.com/new](https://vercel.com/new) → Import repo.
+3. Framework Preset: **Other** (hoặc để trống).
+4. Build Command: để trống · Output Directory: để trống / `.`
+5. Deploy.
+
+Hoặc CLI:
+
+```bash
+npx vercel
+```
+
+File cấu hình: `vercel.json` (cleanUrls + cache headers).
+
+Stack: HTML + Tailwind CSS (CDN) + GSAP + JS thuần. Font: Be Vietnam Pro.
