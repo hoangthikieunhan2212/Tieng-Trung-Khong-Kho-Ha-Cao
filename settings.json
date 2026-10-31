@@ -6,9 +6,12 @@
     "openInNewTab": true
   },
   "social": {
-    "facebook": "https://facebook.com/",
+    "facebook": "https://www.facebook.com/hoang.nhan221200",
     "tiktok": "https://tiktok.com/",
     "youtube": "https://youtube.com/"
+  },
+  "socialBar": {
+    "enabled": true
   },
   "youtubeVideoId": "fLWuNJe3S5s"
 }

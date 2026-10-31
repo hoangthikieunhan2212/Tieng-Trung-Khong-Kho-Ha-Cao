@@ -158,6 +158,65 @@
   .fan-card { width: 15.5rem; height: 26rem; }
 }
 
+/* ─── Fixed social bar (left-center) ─────────────────────────── */
+.social-bar {
+  position: fixed;
+  left: 0.75rem;
+  top: 50%;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.45rem;
+  border-radius: 9999px;
+  background: #062c1f;
+  border: 1px solid rgba(249, 247, 242, 0.08);
+  box-shadow: 0 8px 24px rgba(6, 44, 31, 0.28);
+  transform: translateY(-50%);
+}
+
+.social-bar[hidden] {
+  display: none !important;
+}
+
+.social-bar__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  color: rgba(255, 255, 255, 0.85);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-bar__link:hover {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.social-bar__link[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 639px) {
+  .social-bar {
+    left: 0.4rem;
+    gap: 0.45rem;
+    padding: 0.5rem 0.35rem;
+  }
+
+  .social-bar__link {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .social-bar__link svg {
+    width: 0.85rem;
+    height: 0.85rem;
+  }
+}
+
 /* ─── Reduced motion ────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *,

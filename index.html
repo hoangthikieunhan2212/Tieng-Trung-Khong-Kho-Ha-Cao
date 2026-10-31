@@ -128,7 +128,7 @@
         {
           "@type": "Course",
           "name": "Làm chủ Pinyin trong 5 buổi",
-          "description": "Nắm vững 23 thanh mẫu, 36 vận mẫu và 4 thanh điệu. Luyện nghe nói với audio minh họa.",
+          "description": "Nắm vững 21 thanh mẫu, 36 vận mẫu, 2 thanh bán nguyên âm và 4 thanh điệu. Luyện nghe nói với audio và hình ảnh minh họa.",
           "provider": { "@id": "https://hanyu-bu-tai-nan.vercel.app/#org" },
           "inLanguage": "vi",
           "educationalLevel": "Beginner",
@@ -159,6 +159,58 @@
   </head>
 
   <body class="bg-cream text-forest antialiased">
+
+    <!-- ══════════════════════════════════════════════════════════
+         SOCIAL BAR — fixed left-center; URL từ settings.json → social
+         Xóa / để trống URL trong settings để ẩn từng mạng
+    ══════════════════════════════════════════════════════════ -->
+    <aside
+      id="social-bar"
+      class="social-bar"
+      aria-label="Mạng xã hội"
+      hidden
+    >
+      <a
+        href="#"
+        data-social="facebook"
+        class="social-bar__link"
+        aria-label="Facebook"
+        target="_blank"
+        rel="noopener noreferrer"
+        hidden
+      >
+        <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+      <a
+        href="#"
+        data-social="tiktok"
+        class="social-bar__link"
+        aria-label="TikTok"
+        target="_blank"
+        rel="noopener noreferrer"
+        hidden
+      >
+        <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+        </svg>
+      </a>
+      <a
+        href="#"
+        data-social="youtube"
+        class="social-bar__link"
+        aria-label="YouTube"
+        target="_blank"
+        rel="noopener noreferrer"
+        hidden
+      >
+        <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/>
+          <path d="m10 15 5-3-5-3z"/>
+        </svg>
+      </a>
+    </aside>
 
     <!-- ══════════════════════════════════════════════════════════
          HEADER
@@ -245,8 +297,7 @@
                 id="hero-title"
                 class="text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.75rem] lg:leading-[1.15]"
               >
-                Bắt đầu học tiếng Trung,<br class="hidden sm:block" />
-                từ những điều thật đơn giản.
+                Bắt đầu học tiếng Trung từ những điều thật đơn giản.
               </h1>
               <p id="hero-desc" class="mt-5 max-w-md text-sm leading-relaxed text-cream/70 sm:text-base">
                 Giáo trình số giúp bạn làm chủ phát âm, Pinyin và nền tảng HSK 1 —
@@ -280,9 +331,9 @@
                 </li>
                 <li class="flex items-center gap-2.5">
                   <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cream/10" aria-hidden="true">
-                    <i data-lucide="volume-2" class="size-4"></i>
+                    <i data-lucide="image" class="size-4"></i>
                   </span>
-                  Có âm thanh minh họa
+                  Có hình ảnh minh họa
                 </li>
                 <li class="flex items-center gap-2.5">
                   <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-cream/10" aria-hidden="true">
@@ -338,34 +389,31 @@
           <div class="grid gap-4 sm:grid-cols-3">
             <article class="highlights-card rounded-3xl bg-pastel-sand p-6">
               <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-forest/8" aria-hidden="true">
-                <i data-lucide="book-open" class="size-5 text-forest/65"></i>
+                <i data-lucide="tablet-smartphone" class="size-5 text-forest/65"></i>
               </div>
-              <h3 class="text-base font-bold">Giáo trình dễ hiểu</h3>
+              <h3 class="text-base font-bold">Tương tác trực tiếp 3in1</h3>
               <p class="mt-2.5 text-sm leading-relaxed text-forest/60">
-                Nội dung số hóa, giải thích trực quan — học đến đâu hiểu đến đó,
-                không bị ngợp lý thuyết.
+                Tích hợp đủ 3 kỹ năng Nghe - Nói - Viết tương tác trực tiếp trên iPad/máy tính. Thao tác dễ dàng, học sinh động và ghi nhớ nhanh.
               </p>
             </article>
 
             <article class="highlights-card rounded-3xl bg-pastel-lavender p-6">
               <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-forest/8" aria-hidden="true">
-                <i data-lucide="target" class="size-5 text-forest/65"></i>
+                <i data-lucide="infinity" class="size-5 text-forest/65"></i>
               </div>
-              <h3 class="text-base font-bold">Lộ trình bài bản</h3>
+              <h3 class="text-base font-bold">Dùng trọn đời</h3>
               <p class="mt-2.5 text-sm leading-relaxed text-forest/60">
-                Từ Pinyin đến HSK 1 theo từng buổi — biết rõ hôm nay học gì,
-                tuần sau đi tới đâu.
+                Lộ trình bài bản từ Pinyin đến HSK. Gửi qua email lưu trực tiếp về máy, học chủ động mọi lúc mọi nơi không giới hạn.
               </p>
             </article>
 
             <article class="highlights-card rounded-3xl bg-pastel-green p-6">
               <div class="mb-5 flex h-11 w-11 items-center justify-center rounded-2xl bg-forest/8" aria-hidden="true">
-                <i data-lucide="sprout" class="size-5 text-forest/65"></i>
+                <i data-lucide="message-circle" class="size-5 text-forest/65"></i>
               </div>
-              <h3 class="text-base font-bold">Hỗ trợ học tập</h3>
+              <h3 class="text-base font-bold">Hỗ trợ sử dụng giáo trình</h3>
               <p class="mt-2.5 text-sm leading-relaxed text-forest/60">
-                File luyện viết, theo dõi tiến độ và hướng dẫn phát âm kèm theo
-                mỗi lộ trình.
+                Được hỗ trợ hướng dẫn sử dụng và giải đáp thắc mắc trực tiếp qua Zalo ở 2 tuần đầu.
               </p>
             </article>
           </div>
@@ -408,15 +456,15 @@
                 <ul class="mt-4 space-y-2 text-sm text-forest/65">
                   <li class="flex items-start gap-2">
                     <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
-                    23 thanh mẫu &amp; 36 vận mẫu, 4 thanh điệu
+                    21 thanh mẫu &amp; 36 vận mẫu &amp; 2 thanh bán nguyên âm, 4 thanh điệu
                   </li>
                   <li class="flex items-start gap-2">
                     <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
-                    Luyện nghe – nói có audio minh họa
+                    Luyện nghe – nói có audio và hình ảnh minh họa
                   </li>
                   <li class="flex items-start gap-2">
                     <i data-lucide="check" class="mt-0.5 size-4 shrink-0 text-forest/45" aria-hidden="true"></i>
-                    Bài tập ôn sau mỗi buổi học
+                    Bài tập ôn sau mỗi phần học
                   </li>
                 </ul>
                 <div class="mt-auto flex items-end justify-between gap-3 pt-6">
@@ -497,13 +545,12 @@
             <div class="flex-1 text-center sm:text-left">
               <h3 class="text-lg font-bold sm:text-xl">Combo 2 giáo trình</h3>
               <p class="mt-1 text-sm text-forest/60">
-                Pinyin + HSK 1 — tiết kiệm hơn khi học trọn lộ trình khởi đầu.
+                Pinyin + HSK 1 — nếu bạn bắt đầu từ con số 0.
               </p>
             </div>
             <div class="flex flex-col items-center gap-3 sm:flex-row sm:gap-5">
               <div class="text-center sm:text-right">
                 <p class="text-2xl font-bold">800.000đ</p>
-                <p class="text-sm text-forest/40 line-through">900.000đ</p>
               </div>
               <a
                 href="#"
@@ -549,7 +596,7 @@
                   <i data-lucide="check" class="size-3.5"></i>
                 </span>
                 <p class="text-sm leading-relaxed text-cream/80 sm:text-base">
-                  Nắm vững hệ thống Pinyin: 23 thanh mẫu, 36 vận mẫu và 4 thanh điệu.
+                  Nắm vững 21 thanh mẫu &amp; 36 vận mẫu &amp; 2 thanh bán nguyên âm, 4 thanh điệu
                 </p>
               </li>
               <li class="outcomes-item flex gap-4">

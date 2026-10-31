@@ -18,8 +18,14 @@
   var DEFAULT_SETTINGS = {
     cta: { url: "#", label: "Nhận tư vấn", openInNewTab: true },
     social: { facebook: "#", tiktok: "#", youtube: "#" },
+    socialBar: { enabled: true },
     youtubeVideoId: "",
   };
+
+  function isActiveSocialUrl(link) {
+    link = (link || "").trim();
+    return !!link && link !== "#";
+  }
 
   /* ═══════════════════════════════════════════════════════════════
      0. SETTINGS.JSON → CTA + social + YouTube
@@ -27,8 +33,10 @@
   function applySettings(settings) {
     var cta = settings.cta || DEFAULT_SETTINGS.cta;
     var social = settings.social || DEFAULT_SETTINGS.social;
+    var socialBar = settings.socialBar || DEFAULT_SETTINGS.socialBar;
     var url = (cta.url || "#").trim() || "#";
     var newTab = cta.openInNewTab !== false;
+    var visibleSocialCount = 0;
 
     document.querySelectorAll("[data-cta]").forEach(function (el) {
       el.setAttribute("href", url);
@@ -40,14 +48,27 @@
 
     ["facebook", "tiktok", "youtube"].forEach(function (key) {
       var link = (social[key] || "#").trim() || "#";
+      var active = isActiveSocialUrl(link);
+      if (active) visibleSocialCount++;
+
       document.querySelectorAll('[data-social="' + key + '"]').forEach(function (el) {
         el.setAttribute("href", link);
-        if (link !== "#") {
+        if (active) {
+          el.removeAttribute("hidden");
           el.setAttribute("target", "_blank");
           el.setAttribute("rel", "noopener noreferrer");
+        } else {
+          el.setAttribute("hidden", "");
         }
       });
     });
+
+    var bar = document.getElementById("social-bar");
+    if (bar) {
+      var barEnabled = socialBar.enabled !== false && visibleSocialCount > 0;
+      if (barEnabled) bar.removeAttribute("hidden");
+      else bar.setAttribute("hidden", "");
+    }
 
     initYouTubeEmbed(settings.youtubeVideoId || "");
   }
