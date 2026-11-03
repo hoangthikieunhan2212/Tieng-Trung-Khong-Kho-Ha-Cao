@@ -2,9 +2,9 @@
  * Há Cảo — main.js
  *
  * Modules:
- *  0. loadSettings        — đọc settings.json (CTA, social, YouTube)
+ *  0. loadSettings        — đọc settings.json (CTA, courseLinks, social, YouTube)
  *  1. initImageSlots      — lazy-load ảnh (.jpg/.webp/.png/.svg)
- *  2. initYouTubeEmbed    — nhúng video từ settings.youtubeVideoId
+ *  2. initYouTubeEmbeds   — nhúng 2 video từ settings.youtubeVideos
  *  3. initFeedbackCarousel — Card fan (GSAP) + autoplay 3s + loop
  *  4. initHeaderScroll
  *  5. initActiveNav
@@ -17,9 +17,10 @@
 
   var DEFAULT_SETTINGS = {
     cta: { url: "#", label: "Nhận tư vấn", openInNewTab: true },
-    social: { facebook: "#", tiktok: "#", youtube: "#" },
+    courseLinks: { pinyin: "", hsk1: "", combo: "" },
+    social: { facebook: "#", instagram: "#", tiktok: "#", youtube: "#" },
     socialBar: { enabled: true },
-    youtubeVideoId: "",
+    youtubeVideos: { pinyin: "", hsk1: "" },
   };
 
   function isActiveSocialUrl(link) {
@@ -27,13 +28,27 @@
     return !!link && link !== "#";
   }
 
+  function setExternalHref(el, url) {
+    url = (url || "").trim() || "#";
+    el.setAttribute("href", url);
+    if (url !== "#") {
+      el.setAttribute("target", "_blank");
+      el.setAttribute("rel", "noopener noreferrer");
+    } else {
+      el.removeAttribute("target");
+      el.removeAttribute("rel");
+    }
+  }
+
   /* ═══════════════════════════════════════════════════════════════
-     0. SETTINGS.JSON → CTA + social + YouTube
+     0. SETTINGS.JSON → CTA + courseLinks + social + YouTube
   ═══════════════════════════════════════════════════════════════ */
   function applySettings(settings) {
     var cta = settings.cta || DEFAULT_SETTINGS.cta;
+    var courseLinks = settings.courseLinks || DEFAULT_SETTINGS.courseLinks;
     var social = settings.social || DEFAULT_SETTINGS.social;
     var socialBar = settings.socialBar || DEFAULT_SETTINGS.socialBar;
+    var youtubeVideos = settings.youtubeVideos || DEFAULT_SETTINGS.youtubeVideos;
     var url = (cta.url || "#").trim() || "#";
     var newTab = cta.openInNewTab !== false;
     var visibleSocialCount = 0;
@@ -46,7 +61,14 @@
       }
     });
 
-    ["facebook", "tiktok", "youtube"].forEach(function (key) {
+    ["pinyin", "hsk1", "combo"].forEach(function (key) {
+      var courseUrl = (courseLinks[key] || "").trim() || "#";
+      document.querySelectorAll('[data-course-link="' + key + '"]').forEach(function (el) {
+        setExternalHref(el, courseUrl);
+      });
+    });
+
+    ["facebook", "instagram", "tiktok", "youtube"].forEach(function (key) {
       var link = (social[key] || "#").trim() || "#";
       var active = isActiveSocialUrl(link);
       if (active) visibleSocialCount++;
@@ -70,7 +92,7 @@
       else bar.setAttribute("hidden", "");
     }
 
-    initYouTubeEmbed(settings.youtubeVideoId || "");
+    initYouTubeEmbeds(youtubeVideos);
   }
 
   function loadSettings() {
@@ -119,28 +141,92 @@
   }
 
   /* ═══════════════════════════════════════════════════════════════
-     2. YOUTUBE EMBED  (youtubeVideoId trong settings.json)
+     2. YOUTUBE EMBEDS  (youtubeVideos.pinyin / .hsk1 trong settings.json)
+     Chấp nhận video ID hoặc full YouTube URL.
   ═══════════════════════════════════════════════════════════════ */
-  function initYouTubeEmbed(id) {
-    var box = document.getElementById("youtube-embed");
-    if (!box) return;
+  function extractYouTubeId(value) {
+    value = (value || "").trim();
+    if (!value) return "";
 
-    id = (id || "").trim();
-    if (!id) return;
+    var match = value.match(
+      /(?:youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|shorts\/)|youtu\.be\/)([A-Za-z0-9_-]{6,})/
+    );
+    if (match) return match[1];
 
-    var wrap = box.querySelector(".aspect-video") || box;
-    wrap.innerHTML =
-      '<iframe class="absolute inset-0 h-full w-full" ' +
+    if (/^[A-Za-z0-9_-]{6,}$/.test(value)) return value;
+    return "";
+  }
+
+  function fillYouTubeEmbed(box, id, title) {
+    if (!box || !id) return;
+    box.innerHTML =
+      '<iframe class="absolute inset-0 z-[2] h-full w-full" ' +
       'src="https://www.youtube.com/embed/' + encodeURIComponent(id) + '" ' +
-      'title="Hướng dẫn sử dụng giáo trình Há Cảo" ' +
+      'title="' + title + '" ' +
       'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
       'referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>';
+    box.classList.remove("skeleton");
+  }
+
+  function initYouTubeEmbeds(videos) {
+    videos = videos || {};
+    fillYouTubeEmbed(
+      document.getElementById("youtube-embed-pinyin"),
+      extractYouTubeId(videos.pinyin),
+      "Giải thích khóa Làm chủ Pinyin — Há Cảo"
+    );
+    fillYouTubeEmbed(
+      document.getElementById("youtube-embed-hsk1"),
+      extractYouTubeId(videos.hsk1),
+      "Giải thích khóa HSK 1 — Há Cảo"
+    );
   }
 
   /* ═══════════════════════════════════════════════════════════════
      3. FEEDBACK CAROUSEL — Card Fan (GSAP, js/card-fan-carousel.js)
      Quét feedback-1.png → N, autoplay 3s, loop.
   ═══════════════════════════════════════════════════════════════ */
+  function showFeedbackSkeletons(container) {
+    container.innerHTML = "";
+    for (var i = 0; i < 3; i++) {
+      var el = document.createElement("div");
+      el.className = "fan-card fan-card--skeleton skeleton";
+      el.style.transform =
+        "translate(-50%, -50%) rotate(" + (i - 1) * 8 + "deg) scale(" +
+        (i === 1 ? "1" : "0.88") + ")";
+      el.style.zIndex = i === 1 ? "10" : "2";
+      el.style.left = "calc(50% + " + (i - 1) * 4.5 + "rem)";
+      container.appendChild(el);
+    }
+  }
+
+  function initFeedbackLightbox(images, carousel) {
+    if (typeof GLightbox !== "function" || !images.length) return null;
+
+    var lightbox = GLightbox({
+      elements: images.map(function (src, i) {
+        return {
+          href: src,
+          type: "image",
+          alt: "Chia sẻ học viên " + (i + 1),
+        };
+      }),
+      touchNavigation: true,
+      loop: true,
+      openEffect: "zoom",
+      closeEffect: "fade",
+    });
+
+    lightbox.on("open", function () {
+      if (carousel && carousel.pause) carousel.pause();
+    });
+    lightbox.on("close", function () {
+      if (carousel && carousel.resume) carousel.resume();
+    });
+
+    return lightbox;
+  }
+
   function initFeedbackCarousel() {
     var container = document.getElementById("feedback-fan");
     var btnPrev = document.getElementById("feedback-prev");
@@ -151,6 +237,8 @@
     var PREFIX = "feedback-";
     var EXT = ".png";
     var MAX_PROBE = 40;
+
+    showFeedbackSkeletons(container);
 
     function probe(src) {
       return new Promise(function (resolve) {
@@ -171,9 +259,7 @@
       }
 
       if (!images.length) {
-        container.innerHTML =
-          '<p class="px-4 text-center text-sm text-forest/50">' +
-          "Thêm ảnh feedback-1.png… vào assets/images/feedback/</p>";
+        showFeedbackSkeletons(container);
         return;
       }
 
@@ -182,7 +268,7 @@
         return;
       }
 
-      createCardFanCarousel({
+      var carousel = createCardFanCarousel({
         container: container,
         prevBtn: btnPrev,
         nextBtn: btnNext,
@@ -190,7 +276,13 @@
         cards: images.map(function (src, i) {
           return { imgUrl: src, alt: "Chia sẻ học viên " + (i + 1) };
         }),
+        onCardClick: function (index) {
+          var lb = lightbox;
+          if (lb) lb.openAt(index);
+        },
       });
+
+      var lightbox = initFeedbackLightbox(images, carousel);
     })();
   }
 

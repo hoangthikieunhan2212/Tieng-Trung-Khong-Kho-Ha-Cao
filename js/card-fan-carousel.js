@@ -66,6 +66,7 @@
    * @param {HTMLElement} [options.nextBtn]
    * @param {{imgUrl:string, alt?:string}[]} options.cards
    * @param {number} [options.autoplayMs]
+   * @param {(index:number)=>void} [options.onCardClick]
    */
   function createCardFanCarousel(options) {
     var container = options.container;
@@ -73,6 +74,7 @@
     var nextBtn = options.nextBtn || null;
     var cards = options.cards || [];
     var autoplayMs = options.autoplayMs != null ? options.autoplayMs : AUTOPLAY_MS;
+    var onCardClick = typeof options.onCardClick === "function" ? options.onCardClick : null;
 
     if (!container || typeof gsap === "undefined" || !cards.length) return null;
 
@@ -90,9 +92,11 @@
     // Build DOM
     container.innerHTML = "";
     cards.forEach(function (card, index) {
-      var el = document.createElement("div");
+      var el = document.createElement("button");
+      el.type = "button";
       el.className = "fan-card";
       el.setAttribute("data-index", String(index));
+      el.setAttribute("aria-label", "Phóng to ảnh: " + (card.alt || "Card " + (index + 1)));
       el.innerHTML =
         '<div class="fan-card-inner">' +
         '<img src="' +
@@ -101,6 +105,11 @@
         (card.alt || "Card " + (index + 1)) +
         '" loading="lazy" draggable="false" />' +
         "</div>";
+      if (onCardClick) {
+        el.addEventListener("click", function () {
+          onCardClick(index);
+        });
+      }
       container.appendChild(el);
     });
 
@@ -395,6 +404,8 @@
 
     return {
       cycle: cycle,
+      pause: stopAutoplay,
+      resume: startAutoplay,
       destroy: function () {
         stopAutoplay();
         if (cleanupHover) cleanupHover();

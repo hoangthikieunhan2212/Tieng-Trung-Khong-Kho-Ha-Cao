@@ -94,6 +94,10 @@
     </script>
 
     <link rel="stylesheet" href="css/custom.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css"
+    />
 
     <!-- ── JSON-LD Structured Data ──────────────────────────── -->
     <script type="application/ld+json">
@@ -181,6 +185,21 @@
       >
         <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+        </svg>
+      </a>
+      <a
+        href="#"
+        data-social="instagram"
+        class="social-bar__link"
+        aria-label="Instagram"
+        target="_blank"
+        rel="noopener noreferrer"
+        hidden
+      >
+        <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
         </svg>
       </a>
       <a
@@ -447,7 +466,6 @@
                 class="img-slot aspect-[3/4] w-full shrink-0 overflow-hidden rounded-3xl sm:w-40 lg:w-44"
                 data-src="assets/images/curriculum/pinyin-book"
                 data-alt="Bìa giáo trình Làm chủ Pinyin trong 5 buổi"
-                data-label="curriculum / pinyin-book"
               ></div>
               <div class="flex flex-1 flex-col">
                 <h3 class="text-xl font-bold leading-snug" itemprop="name">
@@ -474,7 +492,7 @@
                   </p>
                   <a
                     href="#"
-                    data-cta
+                    data-course-link="pinyin"
                     class="inline-flex items-center gap-1.5 rounded-full border border-forest/20 px-4 py-2 text-sm font-semibold transition hover:border-forest hover:bg-forest hover:text-cream"
                   >
                     Xem chi tiết
@@ -493,7 +511,6 @@
                 class="img-slot aspect-[3/4] w-full shrink-0 overflow-hidden rounded-3xl sm:w-40 lg:w-44"
                 data-src="assets/images/curriculum/hsk1-book"
                 data-alt="Bìa giáo trình HSK 1 phiên bản 3.0 trong 15 buổi"
-                data-label="curriculum / hsk1-book"
               ></div>
               <div class="flex flex-1 flex-col">
                 <h3 class="text-xl font-bold leading-snug" itemprop="name">
@@ -520,7 +537,7 @@
                   </p>
                   <a
                     href="#"
-                    data-cta
+                    data-course-link="hsk1"
                     class="inline-flex items-center gap-1.5 rounded-full border border-forest/20 px-4 py-2 text-sm font-semibold transition hover:border-forest hover:bg-forest hover:text-cream"
                   >
                     Xem chi tiết
@@ -540,7 +557,6 @@
               class="img-slot img-zoom-150 h-24 w-28 shrink-0 overflow-hidden rounded-2xl sm:h-28 sm:w-32"
               data-src="assets/images/curriculum/combo-books"
               data-alt="Combo giáo trình Pinyin và HSK 1"
-              data-label="combo-books"
             ></div>
             <div class="flex-1 text-center sm:text-left">
               <h3 class="text-lg font-bold sm:text-xl">Combo 2 giáo trình</h3>
@@ -554,7 +570,7 @@
               </div>
               <a
                 href="#"
-                data-cta
+                data-course-link="combo"
                 class="inline-flex items-center gap-2 rounded-full bg-forest px-6 py-3 text-sm font-semibold text-cream transition-colors hover:bg-forest-soft"
               >
                 Mua combo ngay
@@ -579,7 +595,6 @@
                 class="img-slot h-full w-full"
                 data-src="assets/images/outcomes/leaf-bg"
                 data-alt=""
-                data-label=""
               ></div>
             </div>
 
@@ -649,26 +664,23 @@
               Một bài học sẽ diễn ra như thế nào?
             </h2>
             <p class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-forest/60">
-              Khám phá cách sử dụng giáo trình và trải nghiệm một buổi học cùng Há Cảo.
+              Xem video giải thích cách học với từng khóa: Pinyin và HSK 1.
             </p>
           </div>
 
-          <div
-            id="youtube-embed"
-            class="video-frame w-full overflow-hidden rounded-3xl border border-forest/8 bg-white shadow-lg shadow-forest/10"
-          >
-            <div class="relative aspect-video">
-              <div
-                id="youtube-placeholder"
-                class="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-forest/5 px-6 text-center"
-              >
-                <i data-lucide="play-circle" class="size-12 text-forest/40" aria-hidden="true"></i>
-                <p class="text-sm font-medium text-forest/55">
-                  Thêm <code class="rounded bg-forest/8 px-1.5 py-0.5 text-xs">youtubeVideoId</code> trong
-                  <code class="rounded bg-forest/8 px-1.5 py-0.5 text-xs">settings.json</code>
-                </p>
-              </div>
-            </div>
+          <div class="grid w-full gap-5 lg:grid-cols-2 lg:gap-6">
+            <div
+              id="youtube-embed-pinyin"
+              class="video-frame skeleton relative aspect-video w-full overflow-hidden rounded-3xl"
+              data-youtube-key="pinyin"
+              aria-label="Video giải thích khóa Làm chủ Pinyin"
+            ></div>
+            <div
+              id="youtube-embed-hsk1"
+              class="video-frame skeleton relative aspect-video w-full overflow-hidden rounded-3xl"
+              data-youtube-key="hsk1"
+              aria-label="Video giải thích khóa HSK 1"
+            ></div>
           </div>
         </div>
       </section>
@@ -694,7 +706,7 @@
               Học viên nói gì về Há Cảo?
             </h2>
             <p class="mx-auto mt-4 max-w-md text-sm leading-relaxed text-forest/60">
-              Những chia sẻ thật từ những bạn đã và đang học cùng Há Cảo.
+              Những chia sẻ thật từ những bạn đang học cùng Há Cảo.
             </p>
           </div>
 
@@ -748,33 +760,62 @@
           </div>
 
           <div class="rounded-4xl bg-cream-warm px-6 py-8 sm:px-10 lg:px-14">
-            <div class="grid gap-8 sm:grid-cols-3">
+            <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
 
               <div class="support-item flex items-start gap-4">
                 <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm" aria-hidden="true">
                   <i data-lucide="pencil-line" class="size-5 text-forest/60"></i>
                 </div>
-                <p class="text-sm font-medium leading-snug text-forest/75">
-                  File luyện viết chữ Hán<br />(3–4 bài)
-                </p>
+                <div>
+                  <p class="text-sm font-medium leading-snug text-forest/75">
+                    File luyện viết chữ Hán
+                  </p>
+                  <p class="mt-1 text-xs leading-relaxed text-forest/55">
+                    Bộ file mềm luyện viết gồm 3 bài soạn sẵn.
+                  </p>
+                </div>
               </div>
 
               <div class="support-item flex items-start gap-4">
                 <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm" aria-hidden="true">
                   <i data-lucide="table-2" class="size-5 text-forest/60"></i>
                 </div>
-                <p class="text-sm font-medium leading-snug text-forest/75">
-                  File Excel theo dõi<br />tiến độ học
-                </p>
+                <div>
+                  <p class="text-sm font-medium leading-snug text-forest/75">
+                    File Excel theo dõi tiến độ học tập
+                  </p>
+                  <p class="mt-1 text-xs leading-relaxed text-forest/55">
+                    Ghi lại và theo dõi tiến độ học tập mỗi ngày.
+                  </p>
+                </div>
               </div>
 
               <div class="support-item flex items-start gap-4">
                 <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm" aria-hidden="true">
-                  <i data-lucide="users" class="size-5 text-forest/60"></i>
+                  <i data-lucide="book-open" class="size-5 text-forest/60"></i>
                 </div>
-                <p class="text-sm font-medium leading-snug text-forest/75">
-                  Hướng dẫn học &amp; luyện phát âm<br />(2–3 tuần)
-                </p>
+                <div>
+                  <p class="text-sm font-medium leading-snug text-forest/75">
+                    Hướng dẫn sử dụng giáo trình
+                  </p>
+                  <p class="mt-1 text-xs leading-relaxed text-forest/55">
+                    Hướng dẫn cách sử dụng giáo trình trong 2 tuần đầu.
+                  </p>
+                </div>
+              </div>
+
+              <div class="support-item flex items-start gap-4">
+                <div class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white shadow-sm" aria-hidden="true">
+                  <i data-lucide="message-circle" class="size-5 text-forest/60"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-medium leading-snug text-forest/75">
+                    Hỗ trợ giải đáp thắc mắc
+                  </p>
+                  <p class="mt-1 text-xs leading-relaxed text-forest/55">
+                    Giải đáp những nội dung bạn chưa hiểu trong quá trình học.
+                  </p>
+                </div>
               </div>
 
             </div>
@@ -802,44 +843,82 @@
               </button>
               <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
-                  Có — Há Cảo thiết kế đặc biệt cho người mới bắt đầu. Bạn sẽ học từ Pinyin (phát âm) rồi mới bước vào từ vựng và ngữ pháp HSK 1, không cần bất kỳ kiến thức nền nào.
+                  Hoàn toàn được nhé! Giáo trình Há Cảo được thiết kế dành cho người mới bắt đầu, kể cả khi bạn chưa có kiến thức nền tảng. Bạn có thể bắt đầu từ Pinyin (phiên âm và phát âm), sau đó từng bước học từ vựng, chữ Hán và ngữ pháp HSK 1.
                 </p>
               </div>
             </div>
 
             <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
               <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
-                <span class="text-sm font-semibold" itemprop="name">Giáo trình ở dạng nào? Có học trực tiếp không?</span>
+                <span class="text-sm font-semibold" itemprop="name">Giáo trình ở dạng nào? Có phải sách PDF hay slide không?</span>
                 <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
               </button>
               <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
-                  Giáo trình hoàn toàn ở dạng số (digital), gồm tài liệu PDF, audio minh họa và file hỗ trợ luyện viết / theo dõi tiến độ. Bạn tự học linh hoạt theo lịch của mình, không cần đăng ký lịch cố định.
+                  Không phải nhé! Há Cảo xây dựng giáo trình dưới dạng một website tự học tương tác. Bạn có thể trực tiếp luyện nghe, nói, viết, học từ vựng qua hình ảnh minh họa và làm bài tập thực hành ngay trên giáo trình.
                 </p>
               </div>
             </div>
 
             <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
               <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
-                <span class="text-sm font-semibold" itemprop="name">Combo 2 giáo trình gồm những gì và tiết kiệm bao nhiêu?</span>
+                <span class="text-sm font-semibold" itemprop="name">Sau khi mua, tôi nhận giáo trình như thế nào?</span>
                 <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
               </button>
               <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
-                  Combo gồm giáo trình Pinyin (5 buổi) và HSK 1 phiên bản 3.0 (15 buổi), tổng cộng 20 buổi học với đầy đủ tài liệu đi kèm. Giá ưu đãi 800.000đ — tiết kiệm 100.000đ so với mua riêng lẻ.
+                  Sau khi thanh toán thành công, giáo trình sẽ được gửi đến email của bạn. Bạn chỉ cần tải tài liệu xuống, mở bằng Google Chrome/Cốc Cốc/Safari/Microsoft Edge và bắt đầu học. Không cần đăng ký tài khoản hay cài đặt phần mềm riêng.
                 </p>
               </div>
             </div>
 
             <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
               <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
-                <span class="text-sm font-semibold" itemprop="name">Sau khi mua, tôi nhận tài liệu như thế nào?</span>
+                <span class="text-sm font-semibold" itemprop="name">Tôi có phải đóng phí gia hạn hoặc duy trì giáo trình không?</span>
                 <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
               </button>
               <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                 <p class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
-                  Sau khi đặt hàng thành công, tài liệu sẽ được gửi qua email trong vòng 24 giờ làm việc. Bạn có thể liên hệ hỗ trợ nếu chưa nhận được sau thời gian đó.
+                  Không nhé! Bạn chỉ cần thanh toán một lần duy nhất và có thể sử dụng giáo trình trọn đời. Không phát sinh phí gia hạn hay phí duy trì trong quá trình sử dụng.
                 </p>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
+                <span class="text-sm font-semibold" itemprop="name">Khi mua giáo trình, tôi nhận được những tài liệu và hỗ trợ gì?</span>
+                <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
+              </button>
+              <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
+                  <p>Ngoài giáo trình chính, bạn còn nhận được:</p>
+                  <ul class="mt-2 list-disc space-y-1 pl-5">
+                    <li>Bộ file mềm luyện viết chữ Hán gồm 3 bài soạn sẵn.</li>
+                    <li>File Excel theo dõi tiến độ học tập.</li>
+                    <li>Hướng dẫn sử dụng giáo trình trong 2 tuần đầu.</li>
+                    <li>Hỗ trợ giải đáp thắc mắc khi gặp khó khăn trong quá trình học.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item overflow-hidden rounded-2xl border border-forest/8 bg-white" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+              <button class="faq-trigger flex w-full items-center justify-between gap-4 px-5 py-4 text-left" aria-expanded="false">
+                <span class="text-sm font-semibold" itemprop="name">Há Cảo hiện có những giáo trình nào? Giá bao nhiêu?</span>
+                <i data-lucide="plus" class="faq-icon size-[18px] shrink-0 text-forest/45" aria-hidden="true"></i>
+              </button>
+              <div class="faq-body" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div class="px-5 pb-5 pt-1 text-sm leading-relaxed text-forest/60" itemprop="text">
+                  <p>Hiện tại, Há Cảo có 2 giáo trình dành cho người mới bắt đầu:</p>
+                  <ul class="mt-2 list-disc space-y-1 pl-5">
+                    <li>Làm chủ Pinyin: 300.000đ.</li>
+                    <li>HSK 1 – phiên bản 3.0: 500.000đ.</li>
+                    <li>Combo 2 giáo trình: 800.000đ.</li>
+                  </ul>
+                  <p class="mt-2">
+                    Bạn có thể mua từng giáo trình riêng lẻ hoặc lựa chọn combo để học theo lộ trình từ phát âm Pinyin đến kiến thức HSK 1.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -911,6 +990,21 @@
           </a>
           <a
             href="#"
+            data-social="instagram"
+            class="text-forest/55 transition hover:text-forest"
+            aria-label="Instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+            hidden
+          >
+            <svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+            </svg>
+          </a>
+          <a
+            href="#"
             data-social="tiktok"
             class="text-forest/55 transition hover:text-forest"
             aria-label="TikTok"
@@ -942,6 +1036,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
     <script src="js/card-fan-carousel.js"></script>
     <script src="js/main.js"></script>
 

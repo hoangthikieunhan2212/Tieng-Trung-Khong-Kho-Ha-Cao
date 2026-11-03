@@ -1,17 +1,26 @@
 {
   "siteUrl": "https://hanyu-bu-tai-nan.vercel.app",
   "cta": {
-    "url": "https://www.facebook.com/hoang.nhan221200",
+    "url": "https://www.facebook.com/profile.php?id=61594855546236",
     "label": "Nhận tư vấn",
     "openInNewTab": true
   },
+  "courseLinks": {
+    "pinyin": "https://www.facebook.com/permalink.php?story_fbid=pfbid0MyvHBPKRwPjRtXpML7uCbZzkhL1HMVr9nUmLr1Yu5BDvGbRwHpTx1GrdxqXyViShl&id=61594855546236",
+    "hsk1": "https://www.facebook.com/permalink.php?story_fbid=122116076439495184&id=61594855546236",
+    "combo": "https://www.facebook.com/profile.php?id=61594855546236"
+  },
   "social": {
-    "facebook": "https://www.facebook.com/hoang.nhan221200",
-    "tiktok": "https://tiktok.com/",
-    "youtube": "https://youtube.com/"
+    "facebook": "https://www.facebook.com/profile.php?id=61594855546236",
+    "instagram": "https://www.instagram.com/tiengtrungkhongkho.hacao21",
+    "tiktok": "https://www.tiktok.com/@tiengtrungkhongkho2121",
+    "youtube": "https://www.youtube.com/@Ti%E1%BA%BFngTrungKh%C3%B4ngKh%C3%B3-2212"
   },
   "socialBar": {
     "enabled": true
   },
-  "youtubeVideoId": "fLWuNJe3S5s"
+  "youtubeVideos": {
+    "pinyin": "https://youtu.be/m2pxFah9Nnw?si=F1fiFHc_u8csY-xf",
+    "hsk1": " https://www.youtube.com/watch?v=8BeNAakljgg&list=PLI-GLAdhJe9Y"
+  }
 }

@@ -1,16 +1,62 @@
 /* Há Cảo — custom.css
    Chỉ chứa những gì Tailwind utilities không diễn đạt được:
-   - .img-slot   (positioning + pseudo-content cho placeholder)
-   - .outcomes-wash  (gradient phức hợp)
-   - .nav-link   (::after underline pseudo-element)
+   - .skeleton / .img-slot
+   - .outcomes-wash
+   - .nav-link
+   - card fan + social bar
    - prefers-reduced-motion
 */
 
-/* ─── Image placeholder slots ───────────────────────────────── */
+/* ─── Reusable skeleton loading ──────────────────────────────── */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #e4ebe4 0%, #ebe6e1 55%, #e5dfe8 100%);
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.35s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ─── Image slots (skeleton while loading) ───────────────────── */
 .img-slot {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #e8efe8 0%, #f3ebe8 50%, #e5dce8 100%);
+  background: linear-gradient(145deg, #e4ebe4 0%, #ebe6e1 55%, #e5dfe8 100%);
+}
+
+.img-slot:not(.logo-slot):not([data-loaded="true"])::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 45%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.35s ease-in-out infinite;
+  pointer-events: none;
 }
 
 .img-slot img {
@@ -27,8 +73,7 @@
   transform: scale(1.5);
 }
 
-/* Logo: nền trong suốt (không dùng gradient hồng của .img-slot),
-   cover + rounded để khớp vòng tròn */
+/* Logo: nền trong suốt, không skeleton shimmer */
 .img-slot.logo-slot {
   background: transparent;
 }
@@ -38,26 +83,14 @@
   padding: 0;
 }
 
-/* Hiển thị tên placeholder khi chưa có ảnh */
-.img-slot[data-label][data-loaded="false"]::after {
-  content: attr(data-label);
+/* Video embed: skeleton cho đến khi iframe được gắn */
+.video-frame.skeleton iframe {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1rem;
-  text-align: center;
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: #5a6b5e;
-  opacity: 0.65;
-  z-index: 1;
-  pointer-events: none;
+  z-index: 2;
 }
 
-.img-slot[data-loaded="true"]::after {
+.video-frame:not(.skeleton)::after {
   display: none;
 }
 
@@ -113,12 +146,17 @@
   top: 50%;
   width: 9.25rem;
   height: 15.5rem;
+  padding: 0;
+  border: 0;
   border-radius: 1.25rem;
   overflow: hidden;
   background: #fff;
+  color: inherit;
   box-shadow: 0 14px 36px rgba(6, 44, 31, 0.16);
   will-change: transform, opacity;
-  cursor: default;
+  cursor: zoom-in;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .fan-card-inner,
@@ -131,6 +169,12 @@
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
+}
+
+.fan-card--skeleton {
+  cursor: default;
+  pointer-events: none;
+  box-shadow: none;
 }
 
 @media (min-width: 400px) {
@@ -215,6 +259,11 @@
     width: 0.85rem;
     height: 0.85rem;
   }
+}
+
+/* ─── GLightbox theme tweaks ─────────────────────────────────── */
+.glightbox-clean .gslide-description {
+  background: transparent;
 }
 
 /* ─── Reduced motion ────────────────────────────────────────── */
