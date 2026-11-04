@@ -1,35 +1,56 @@
 /**
  * Card Fan Carousel — port vanilla JS từ React SocialCards (GSAP, không lib carousel)
  * Autoplay 3s, loop toàn bộ ảnh.
+ * Visible: laptop 6 · tablet 4 · mobile 3
  */
 (function (global) {
   "use strict";
 
-  var MAX_VISIBLE = 3;
-  var HALF = 1;
   var AUTOPLAY_MS = 3000;
 
-  // 3 vị trí: trái / giữa (to) / phải
-  var FAN_POSITIONS = [
-    { rot: -10, scale: 0.88, x: -8.5, y: 1.6, zIndex: 2 },
-    { rot: 0,   scale: 1.0,  x: 0,    y: 0.0, zIndex: 10 },
-    { rot: 10,  scale: 0.88, x: 8.5,  y: 1.6, zIndex: 2 },
-  ];
+  var FAN_BY_COUNT = {
+    3: [
+      { rot: -10, scale: 0.88, x: -8.5, y: 1.6, zIndex: 2 },
+      { rot: 0, scale: 1.0, x: 0, y: 0.0, zIndex: 10 },
+      { rot: 10, scale: 0.88, x: 8.5, y: 1.6, zIndex: 2 },
+    ],
+    4: [
+      { rot: -14, scale: 0.8, x: -12, y: 2.2, zIndex: 1 },
+      { rot: -5, scale: 0.92, x: -4.5, y: 0.7, zIndex: 4 },
+      { rot: 0, scale: 1.0, x: 0, y: 0.0, zIndex: 10 },
+      { rot: 10, scale: 0.88, x: 8, y: 1.4, zIndex: 3 },
+    ],
+    6: [
+      { rot: -16, scale: 0.72, x: -15.5, y: 2.8, zIndex: 1 },
+      { rot: -10, scale: 0.8, x: -10, y: 1.7, zIndex: 3 },
+      { rot: -4, scale: 0.9, x: -4.5, y: 0.5, zIndex: 6 },
+      { rot: 0, scale: 1.0, x: 0, y: 0.0, zIndex: 10 },
+      { rot: 7, scale: 0.88, x: 5.5, y: 0.7, zIndex: 5 },
+      { rot: 13, scale: 0.76, x: 11.5, y: 2.0, zIndex: 2 },
+    ],
+  };
+
+  function getMaxVisible(width) {
+    if (width >= 1024) return 6;
+    if (width >= 768) return 4;
+    return 3;
+  }
 
   function getResponsiveMultiplier(width) {
-    // Mobile: thu offset mạnh để 3 card không tràn viewport
-    if (width < 380) return 0.42;
-    if (width < 480) return 0.52;
-    if (width < 640) return 0.68;
-    if (width < 768) return 0.82;
-    if (width < 1024) return 0.92;
+    if (width < 380) return 0.4;
+    if (width < 480) return 0.5;
+    if (width < 640) return 0.64;
+    if (width < 768) return 0.78;
+    if (width < 1024) return 0.86;
+    if (width < 1280) return 0.92;
     return 1.0;
   }
 
   function getEnterExitRem(width) {
     if (width < 480) return 12;
     if (width < 768) return 18;
-    return 28;
+    if (width < 1024) return 24;
+    return 30;
   }
 
   function getHeightMultiplier(width) {
@@ -37,8 +58,8 @@
     if (width < 480) idealPx = 22 * 16;
     else if (width < 640) idealPx = 26 * 16;
     else if (width < 768) idealPx = 28 * 16;
-    else if (width < 1024) idealPx = 34 * 16;
-    else idealPx = 38 * 16;
+    else if (width < 1024) idealPx = 32 * 16;
+    else idealPx = 36 * 16;
 
     var available = window.innerHeight * 0.7;
     if (available >= idealPx) return 1;
@@ -46,15 +67,17 @@
   }
 
   function getSlotConfig(slotCount, slot) {
-    if (slotCount >= MAX_VISIBLE) return FAN_POSITIONS[slot];
+    var presets = FAN_BY_COUNT[slotCount];
+    if (presets && presets[slot]) return presets[slot];
+
     var center = slotCount >> 1;
     var distance = slotCount > 1 ? (slot - center) / center : 0;
     var absDistance = Math.abs(distance);
     return {
-      rot: distance * 10,
+      rot: distance * 12,
       scale: 1.0 - 0.12 * absDistance * absDistance,
-      x: distance * 8.5,
-      y: absDistance * absDistance * 1.6,
+      x: distance * 9,
+      y: absDistance * absDistance * 1.8,
       zIndex: 10 - Math.abs(slot - center),
     };
   }
@@ -79,7 +102,7 @@
     if (!container || typeof gsap === "undefined" || !cards.length) return null;
 
     var totalCards = cards.length;
-    var slotCount = Math.min(MAX_VISIBLE, totalCards);
+    var slotCount = Math.min(getMaxVisible(window.innerWidth), totalCards);
     var half = slotCount >> 1;
     var centerIndex = half;
     var isAnimating = false;
@@ -88,6 +111,15 @@
     var prevVisible = new Set();
     var autoplayTimer = null;
     var cleanupHover = null;
+    var resizeTimer = null;
+
+    function syncSlotCount() {
+      var next = Math.min(getMaxVisible(window.innerWidth), totalCards);
+      if (next === slotCount) return false;
+      slotCount = next;
+      half = slotCount >> 1;
+      return true;
+    }
 
     // Build DOM
     container.innerHTML = "";
@@ -96,7 +128,10 @@
       el.type = "button";
       el.className = "fan-card";
       el.setAttribute("data-index", String(index));
-      el.setAttribute("aria-label", "Phóng to ảnh: " + (card.alt || "Card " + (index + 1)));
+      el.setAttribute(
+        "aria-label",
+        "Phóng to ảnh: " + (card.alt || "Card " + (index + 1))
+      );
       el.innerHTML =
         '<div class="fan-card-inner">' +
         '<img src="' +
@@ -147,7 +182,6 @@
           ? (centerIndex + 1) % totalCards
           : (centerIndex - 1 + totalCards) % totalCards;
       layout();
-      // restart autoplay after manual nav
       startAutoplay();
     }
 
@@ -271,6 +305,12 @@
             yPercent: -50,
             zIndex: 0,
           });
+        } else {
+          gsap.set(card, {
+            opacity: 0,
+            scale: 0.4,
+            zIndex: 0,
+          });
         }
       });
 
@@ -312,21 +352,21 @@
 
             if (slot === hoveredSlot) {
               targetY -= 2.5 * hM;
-              targetScale *= 1.08;
+              targetScale *= 1.06;
             } else {
               var normalized =
                 centerSlot > 0 ? (slot - centerSlot) / centerSlot : 0;
               var pushStrength =
-                8 *
+                5.5 *
                 (1 - Math.abs(normalized)) *
-                (1 + 0.2 * Math.max(0, 3 - distance));
+                (1 + 0.15 * Math.max(0, 3 - distance));
 
               if (slot < hoveredSlot) {
                 targetX -= pushStrength * mult;
-                targetRot -= 3 / (distance + 1);
+                targetRot -= 2.5 / (distance + 1);
               } else {
                 targetX += pushStrength * mult;
-                targetRot += 3 / (distance + 1);
+                targetRot += 2.5 / (distance + 1);
               }
             }
           } else {
@@ -375,12 +415,11 @@
       }
       container.addEventListener("mouseleave", onMouseLeave);
 
-      function onResize() {
+      function onHoverResize() {
         if (!isAnimating) updateHoverLayout(activeSlot);
       }
-      window.addEventListener("resize", onResize);
+      window.addEventListener("resize", onHoverResize);
 
-      // Pause autoplay while hovering
       container.addEventListener("mouseenter", stopAutoplay);
       container.addEventListener("mouseleave", startAutoplay);
 
@@ -391,13 +430,26 @@
         container.removeEventListener("mouseleave", onMouseLeave);
         container.removeEventListener("mouseenter", stopAutoplay);
         container.removeEventListener("mouseleave", startAutoplay);
-        window.removeEventListener("resize", onResize);
+        window.removeEventListener("resize", onHoverResize);
         if (leaveTimer) clearTimeout(leaveTimer);
       };
     }
 
+    function onWindowResize() {
+      if (resizeTimer) clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function () {
+        var changed = syncSlotCount();
+        if (changed) {
+          prevVisible = new Set();
+          direction = null;
+        }
+        layout();
+      }, 120);
+    }
+
     if (prevBtn) prevBtn.addEventListener("click", function () { cycle("left"); });
     if (nextBtn) nextBtn.addEventListener("click", function () { cycle("right"); });
+    window.addEventListener("resize", onWindowResize);
 
     layout();
     startAutoplay();
@@ -409,6 +461,8 @@
       destroy: function () {
         stopAutoplay();
         if (cleanupHover) cleanupHover();
+        if (resizeTimer) clearTimeout(resizeTimer);
+        window.removeEventListener("resize", onWindowResize);
       },
     };
   }

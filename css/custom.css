@@ -199,7 +199,13 @@
 
 @media (min-width: 1024px) {
   .fan-layout { height: 34rem; }
-  .fan-card { width: 15.5rem; height: 26rem; }
+  /* Nhỏ hơn một chút để xếp được 6 card trên laptop */
+  .fan-card { width: 13.75rem; height: 23rem; }
+}
+
+@media (min-width: 1280px) {
+  .fan-layout { height: 36rem; }
+  .fan-card { width: 14.75rem; height: 24.75rem; }
 }
 
 /* ─── Fixed social bar (left-center) ─────────────────────────── */
